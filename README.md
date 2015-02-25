@@ -1,0 +1,2 @@
+# sigmajs
+WebJars Sigma.js
