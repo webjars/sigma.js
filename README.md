@@ -10,6 +10,6 @@ http://www.webjars.org/contributing
 
 #to install and run locally
 ```
-mvn install -Dmaven.antrun.skip=true
+mvn install
 ```
 
