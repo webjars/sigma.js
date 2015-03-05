@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>org.webjars</groupId>
 	<artifactId>sigmajs</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.3</version>
 	<name>sigmajs</name>
 	<description>WebJar for sigmajs</description>
 	<url>http://webjars.org</url>
@@ -16,15 +16,18 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<upstream.version>1.0.3</upstream.version>
-		<upstream.url>https://github.com/jacomyal/sigma.js.git</upstream.url>
+		<upstream.directory>v${upstream.version}</upstream.directory>
+		<!-- https://github.com/jacomyal/sigma.js/releases/download/v1.0.3/release-v1.0.3.zip -->
+		<upstream.file>release-v${upstream.version}.zip</upstream.file>
+		<upstream.url>https://github.com/jacomyal/sigma.js/releases/download/${upstream.directory}/${upstream.file}</upstream.url>
 		<destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
 		<requirejs>
 			{
-			 "paths": {
-			   "sigmajs": "sigma.min.js"
-			 },
-			 "shim": {
-			   "sigmajs": ["sigma"]
+			"paths": {
+			"sigmajs": "sigma.min.js"
+			},
+			"shim": {
+			"sigmajs": ["sigma"]
 			}
 			}
 		</requirejs>
@@ -66,16 +69,14 @@
 						</goals>
 						<configuration>
 							<target>
-								<echo message="download archive" />
-								<get src="${upstream.url}"
-									dest="${project.build.directory}/${project.artifactId}.zip" />
-								<echo message="unzip archive" />
-								<unzip src="${project.build.directory}/${project.artifactId}.zip"
-									dest="${project.build.directory}" />
-								<echo message="moving resources" />
+								<echo message="download archive..." />
+								<get src="${upstream.url}" dest="${project.build.directory}/${project.artifactId}.zip" />
+								<echo message="unzip archive..." />
+								<unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}/${project.artifactId}-${upstream.version}" />
+								<echo message="unzip done" />
+								<echo message="moving resources.." />
 								<move todir="${destDir}">
-									<fileset
-										dir="${project.build.directory}/${project.artifactId}-${upstream.version}" />
+									<fileset dir="${project.build.directory}/${project.artifactId}-${upstream.version}" />
 								</move>
 							</target>
 						</configuration>
