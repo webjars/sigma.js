@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>org.webjars</groupId>
 	<artifactId>sigmajs</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.3-SNAPSHOT</version>
 	<name>sigmajs</name>
 	<description>WebJar for sigmajs</description>
 	<url>http://webjars.org</url>
@@ -27,7 +27,8 @@
 			"sigmajs": "sigma.min.js"
 			},
 			"shim": {
-			"sigmajs": ["sigma"]
+			"sigmajs":
+			["sigma"]
 			}
 			}
 		</requirejs>
@@ -70,13 +71,16 @@
 						<configuration>
 							<target>
 								<echo message="download archive..." />
-								<get src="${upstream.url}" dest="${project.build.directory}/${project.artifactId}.zip" />
+								<get src="${upstream.url}"
+									dest="${project.build.directory}/${project.artifactId}.zip" />
 								<echo message="unzip archive..." />
-								<unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}/${project.artifactId}-${upstream.version}" />
+								<unzip src="${project.build.directory}/${project.artifactId}.zip"
+									dest="${project.build.directory}/${project.artifactId}-${upstream.version}" />
 								<echo message="unzip done" />
 								<echo message="moving resources.." />
 								<move todir="${destDir}">
-									<fileset dir="${project.build.directory}/${project.artifactId}-${upstream.version}" />
+									<fileset
+										dir="${project.build.directory}/${project.artifactId}-${upstream.version}" />
 								</move>
 							</target>
 						</configuration>
