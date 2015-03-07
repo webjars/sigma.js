@@ -10,7 +10,7 @@
 
     <groupId>org.webjars</groupId>
     <artifactId>sigma.js</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4-SNAPSHOT</version>
     <name>Sigma.js</name>
     <description>WebJar for Sigma.js</description>
     <url>http://webjars.org</url>
@@ -51,7 +51,7 @@
         <url>http://github.com/webjars/sigma.js</url>
         <connection>scm:git:https://github.com/webjars/sigma.js.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/sigma.js.git</developerConnection>
-        <tag>sigma.js-1.0.3</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <build>
